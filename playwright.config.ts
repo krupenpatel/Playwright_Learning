@@ -1,9 +1,10 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  testMatch: ["tests/confirmbox.test.ts"],
+  testMatch: ["tests/alerts.test.ts"],
   use: {
-    headless: false
+    headless: false,
+    screenshot: 'only-on-failure'
   },
   reporter: [
     ["dot"],["json",{
