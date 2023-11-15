@@ -1,10 +1,15 @@
 import { defineConfig } from '@playwright/test';
+import { on } from 'events';
 
 export default defineConfig({
-  testMatch: ["tests/alerts.test.ts"],
+  testMatch: ["tests/dropdown.test.ts"],
   use: {
     headless: false,
-    screenshot: 'only-on-failure'
+    screenshot: 'only-on-failure',
+    video: 'on',
+    launchOptions:{
+      slowMo: 1000
+    }
   },
   reporter: [
     ["dot"],["json",{
