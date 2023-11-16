@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test';
 import { on } from 'events';
 
 export default defineConfig({
-  testMatch: ["tests/dropdown.test.ts"],
+  testMatch: ["tests/windowshendling.test.ts"],
   use: {
     headless: false,
     screenshot: 'only-on-failure',
