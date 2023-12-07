@@ -3,19 +3,23 @@ import RegisterPage from "../pages/registerPage";
 import LoginPage from "../pages/loginPage";
 import SpcialHotPage from "../pages/SpcialHoPage";
 import HomePage from "../pages/HomePage";
+import * as data from "../testdata/addtodart.json";
 
 const email = "krupen.patel@thecommerceteam.com";
 const password = "Test@123";
+/* test.use({
+    browserName : "firefox"
+}) */
 test.describe("Page Object Model Test",async () => {
     test("Create account",async({page,baseURL})=>{
         const register=new RegisterPage(page)
         await page.goto(`${baseURL}route=account/register`)
-        await register.enterFirstName("krupen")
-        await register.enterLastName("patel")
-        await register.enterEmail(email)
-        await register.enterPhone("4432343234")
-        await register.enterPassword(password)
-        await register.enterConfirmPassword(password)
+        await register.enterFirstName(data.firstname)
+        await register.enterLastName(data.lastname)
+        await register.enterEmail(data.email)
+        await register.enterPhone(data.phonenumber)
+        await register.enterPassword(data.password)
+        await register.enterConfirmPassword(data.password)
         expect(register.isSubscribeChecked()).toBeChecked()
         await register.clickTandC()
         await register.continueToRegister()

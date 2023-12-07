@@ -1,7 +1,28 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 import { on } from 'events';
 
 export default defineConfig({
+  fullyParallel :true,
+  projects : [
+    {
+      name: "chrome",
+      use: {
+        ...devices["Desktop Chrome"]
+      }
+    },
+    {
+      name: "edge",
+      use: {
+        ...devices["Desktop Edge"]
+      }
+    },
+    {
+      name: "firefox",
+      use: {
+        ...devices["Desktop Firefox"]
+      }
+    }
+  ],
   testMatch: ["pomtest/addToCart.test.ts"],
   use: {
     baseURL: "https://ecommerce-playground.lambdatest.io/index.php?",

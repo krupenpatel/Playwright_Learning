@@ -20,7 +20,7 @@ export default class LoginPage{
         ])
     }
 
-    async login(email : string,password : string){
+    async login(email:string,password:string){
         await this.enterEmail(email)
         await this.enterPassword(password)
         await this.clickOnLogin()
